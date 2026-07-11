@@ -1,6 +1,6 @@
 # Nat Habit Storefront – Setup & Installation Instructions
 
-This guide provides comprehensive, step-by-step instructions for running, building, and deploying the **Nat Habit Storefront** application.
+This guide provides comprehensive, step-by-step instructions for running, building, and deploying the **Nat Habit Storefront** application built using **Next.js (App Router)**, **TypeScript**, and **Redux Toolkit**.
 
 ---
 
