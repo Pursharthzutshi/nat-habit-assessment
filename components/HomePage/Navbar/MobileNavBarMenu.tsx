@@ -1,6 +1,7 @@
 "use client";
 import styles from "../HomePage.module.css";
 import { useSelector } from "react-redux";
+import { useRouter, usePathname } from "next/navigation";
 import { MobileNavBarMenuProps } from "@/types/types";
 
 export default function MobileNavBarMenu({
@@ -9,8 +10,20 @@ export default function MobileNavBarMenu({
     setOpen,
 }: MobileNavBarMenuProps) {
     const cartItemQuantity = useSelector((state: any) => state.cart?.cartItemQuantity || 0);
+    const router = useRouter();
+    const pathname = usePathname();
 
     if (!mobileMenuOpen) return null;
+
+    const handleExploreStore = () => {
+        setMobileMenuOpen(false);
+        if (pathname === "/") {
+            const el = document.getElementById("catalog-section");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+        } else {
+            router.push("/#catalog-section");
+        }
+    };
 
     return (
         <div className="sm:hidden border-t border-gray-200 mt-2 pt-3 pb-2 flex flex-col gap-3">
@@ -27,8 +40,11 @@ export default function MobileNavBarMenu({
                 </span>
             </button>
             <div className="px-3">
-                <button className={`${styles.SignInbutton} w-full text-center py-2`}>
-                    Sign In
+                <button
+                    onClick={handleExploreStore}
+                    className={`${styles.SignInbutton} w-full text-center py-2`}
+                >
+                    Explore Store
                 </button>
             </div>
         </div>
