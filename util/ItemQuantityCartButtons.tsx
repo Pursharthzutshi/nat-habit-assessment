@@ -1,5 +1,4 @@
 "use client";
-import styles from "../HomePage.module.css";
 import { Button } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { setAddItemsToCartData, setRemoveItemsFromCartData } from "@/ReduxSlicers/CartSlicer";

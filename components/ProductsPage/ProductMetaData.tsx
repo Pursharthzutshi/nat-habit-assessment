@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useProducts } from "@/store/useProducts";
+import { useProducts } from "@/hooks/useProducts";
 import { useParams } from "next/navigation";
 import ProductReviewsSection from "./ProductMetaDataComponents/ProductsReview/ProductReviewsSection";
 import ProductDimensions from "./ProductMetaDataComponents/ProductDimensions";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useProducts } from "@/store/useProducts";
+import { useProducts } from "@/hooks/useProducts";
 import { motion } from "framer-motion";
 import ProductCategories from "./ProductCategories/ProductCategories";
 import FeaturedProducts from "./FeaturedProducts/FeaturedProducts";

@@ -17,7 +17,7 @@ export default function FeaturedProductSlide({ product }: ProductCardProps) {
                 />
                 {(product.discountPercentage ?? 0) > 0 && (
                     <span className={styles.carouselDiscountBadge}>
-                        {Math.round(product.discountPercentage ?? 0)}% off
+                        {Math.round(product.discountPercentage ?? 0)}% OFF
                     </span>
                 )}
             </div>

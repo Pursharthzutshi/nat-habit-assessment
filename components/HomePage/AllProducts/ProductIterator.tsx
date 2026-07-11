@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useProducts } from "@/store/useProducts";
+import { useProducts } from "@/hooks/useProducts";
 
 interface ProductIteratorProps {
     /** Optional filter function to filter products before iterating */

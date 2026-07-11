@@ -1,5 +1,5 @@
 "use client";
-import { useProducts } from "@/store/useProducts";
+import { useProducts } from "@/hooks/useProducts";
 import { Carousel } from "antd";
 import styles from "./FeaturedProducts.module.css";
 import FeaturedProductSlide from "./FeaturedProductSlide";

@@ -1,7 +1,7 @@
 "use client";
 import { Select } from "antd";
 import styles from "./ProductCategories.module.css";
-import { useProducts } from "@/store/useProducts";
+import { useProducts } from "@/hooks/useProducts";
 import { useEffect, useState } from "react";
 
 export interface ProductCategoriesProps {

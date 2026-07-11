@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState, useCallback } from "react";
-import { useProducts } from "@/store/useProducts";
+import { useProducts } from "@/hooks/useProducts";
 import styles from "./ProductCardsInformation.module.css";
 import ProductCardImageBox from "./ProductCardImageBox";
 import ProductCardOverviewBox from "./ProductCardOverviewBox";

@@ -17,7 +17,7 @@ export default function ProductsCardTop({ product }: ProductCardProps) {
                     />
                     {(product.discountPercentage ?? 0) > 0 && (
                         <span className="top-3 right-3 bg-green-100 text-green-800 text-xs font-bold px-2.5 py-1 rounded-full border border-green-200">
-                            {Math.round(product.discountPercentage ?? 0)}%
+                            {Math.round(product.discountPercentage ?? 0)}% OFF
                         </span>
                     )}
                 </div>

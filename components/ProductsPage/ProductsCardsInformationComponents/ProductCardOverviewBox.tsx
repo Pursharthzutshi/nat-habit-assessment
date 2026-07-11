@@ -43,7 +43,7 @@ export default function ProductCardOverviewBox({ product }: { product: Product }
                         </p>
                     )}
                     <p className={`${styles.discountBadge} text-green-800 `}>
-                        Discount: {product.discountPercentage}% OFF
+                        Discount: {Math.round(product.discountPercentage ?? 0)}% OFF
                     </p>
                     <p className={`${styles.returnPolicy} text-red-700`}>
                         {product.returnPolicy}

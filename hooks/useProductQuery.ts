@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useMemo } from "react";
 import { useAppSelector } from "@/store/ReduxHooks";
-import { useProducts } from "@/store/useProducts";
+import { useProducts } from "@/hooks/useProducts";
 
 export interface UseProductQueryOptions {
     search?: string;

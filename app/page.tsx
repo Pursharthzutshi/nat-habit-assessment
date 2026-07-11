@@ -1,7 +1,7 @@
 "use client";
 import HomePage from "@/components/HomePage/HomePage";
 import { useEffect, useState } from "react";
-import { useProducts } from "@/store/useProducts";
+import { useProducts } from "@/hooks/useProducts";
 
 export default function Home() {
   const { products: productData, fetchCatalog } = useProducts();
