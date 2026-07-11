@@ -1,0 +1,172 @@
+.mainSection {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 24px;
+    overflow: hidden;
+}
+
+.imageContainer {
+    border-radius: 20px;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+    width: 100%;
+    max-width: 100%;
+    min-height: 280px;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .imageContainer {
+        border-radius: 24px;
+        padding: 32px;
+        min-height: 420px;
+    }
+}
+
+.mainImage {
+    max-height: 380px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+    transition: all 0.3s ease;
+}
+
+.mainImage:hover {
+    transform: scale(1.05);
+}
+
+.thumbButton {
+    padding: 8px;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.thumbButton:hover {
+    opacity: 1;
+}
+
+.thumbButtonActive {
+    padding: 8px;
+    border-radius: 12px;
+    border: 2px solid #000000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.thumbImage {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.infoCard {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .infoCard {
+        padding: 40px;
+    }
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 2.25rem;
+    }
+}
+
+.brand {
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.ratingStars {
+    color: #ffd700;
+    font-size: 24px;
+    margin: 0;
+}
+
+.ratingText {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 1.125rem;
+    line-height: 1.625;
+    padding: 8px 0;
+    border-top: 1px solid #f3f4f6;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.statusText {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.warrantyText {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.discountBadge {
+    font-size: 14px;
+    font-weight: 200;
+    padding: 8px 12px 8px 12px;
+    border: 1px dashed green;
+    border-radius: 12px;
+    width: fit-content;
+}
+
+.returnPolicy {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.buyNowButton {
+    margin-top: 16px;
+    width: auto;
+    padding: 16px 32px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(250, 204, 21, 0.2);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.buyNowButton:hover {
+    box-shadow: 0 25px 50px -12px rgba(234, 179, 8, 0.3);
+    transform: translateY(-2px);
+}
+
+.buyNowButton:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.priceBadge {
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 4px 14px;
+    border-radius: 12px;
+    font-size: 1.125rem;
+    font-weight: 900;
+    letter-spacing: 0.025em;
+}

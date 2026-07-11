@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+span:not([class]) {
+    font-size: 14px;
+    color: #4b5563;
+}
+
+
+
+.sb-avatar span {
+    color: #ffffff !important;
+}
+
+button.ant-btn.addItemsToCartButton {
+    margin-top: 1rem;
+    background-color: #00531e;
+    border-color: #004b1c;
+    color: #ffffff;
+    box-shadow: .2px .2px 2px .2px #002b10;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+button.ant-btn.addItemsToCartButton:hover,
+button.ant-btn.addItemsToCartButton:focus {
+    background-color: #006324;
+    border-color: #006325;
+    box-shadow: .2px .2px 2px .2px rgba(0, 43, 16, 0.3);
+    transform: translateY(-1px);
+}
+
+button.ant-btn.addItemsToCartButton:hover span,
+button.ant-btn.addItemsToCartButton:focus span {
+    color: #166534;
+}
+
+button.ant-btn.cartIncrementButton {
+    border: 1.5px solid #004b1c;
+    color: #004b1c;
+    background-color: transparent;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+button.ant-btn.cartIncrementButton:hover {
+    border-color: #004b1c;
+    background-color: #004b1c;
+}
+
+button.ant-btn.cartDecrementButton {
+    border: 1.5px solid #dc2626;
+    color: #dc2626;
+    background-color: transparent;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+button.ant-btn.cartDecrementButton:hover {
+    border-color: #dc2626;
+    background-color: #dc2626;
+}

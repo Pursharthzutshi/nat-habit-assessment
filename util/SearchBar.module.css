@@ -1,0 +1,47 @@
+.searchBarForm,
+.searchBarContainer,
+.searchBarInputDiv,
+.searchBarButtonDiv,
+.searchBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBarContainer {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.searchBarInputDiv {
+    box-shadow: .2px .2px 4px .2px lightgray;
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 40rem;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.searchBarButtonDiv {
+    box-shadow: .2px .2px 2px .2px rgb(0, 62, 22);
+    color: white;
+    background: rgb(0, 62, 22);
+    padding: 12.5px;
+    margin-left: -12px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    gap: 12px;
+}
+
+.searchBar {
+    width: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+}

@@ -1,0 +1,44 @@
+.brandContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+.brandLink {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.brandIcon {
+    width: 2rem;
+    height: 2rem;
+    color: #004b1c;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+
+.brandTitle {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #111827;
+    transition: color 0.2s ease;
+    margin: 0;
+}
+
+
+
+@media (min-width: 640px) {
+    .brandIcon {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .brandTitle {
+        font-size: 1.5rem;
+    }
+}

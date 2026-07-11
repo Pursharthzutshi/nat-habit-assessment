@@ -1,0 +1,80 @@
+.cardContainer {
+    max-width: 36rem;
+    margin: 4rem auto;
+    padding: 3rem 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #f3f4f6;
+    border-radius: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.pageContainer {
+    min-height: 70vh;
+    padding: 3rem 1.5rem;
+}
+
+.redIconBox {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 9999px;
+    background-color: #fef2f2;
+    color: #dc2626;
+    margin-bottom: 1rem;
+}
+
+.amberIconBox {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 9999px;
+    background-color: #fffbeb;
+    color: #d97706;
+    margin-bottom: 1rem;
+}
+
+.greenIconBox {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 9999px;
+    background-color: #f0fdf4;
+    color: #004b1c;
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.largeTitle {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    color: #4b5563;
+    margin-bottom: 2rem;
+    max-width: 28rem;
+    line-height: 1.6;
+}
+
+.actionButton {
+    padding: 0.875rem 2rem;
+    background-color: #004b1c;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 9999px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.actionButton:hover {
+    background-color: #006325;
+    box-shadow: 0 4px 10px rgba(0, 43, 16, 0.2);
+    transform: translateY(-1px);
+}

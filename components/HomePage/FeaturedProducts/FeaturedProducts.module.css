@@ -1,0 +1,110 @@
+.featuredContainer {
+    max-width: 80rem;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 1rem 1rem;
+    overflow: hidden;
+}
+
+.featuredTitle {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #111827;
+    margin-top: 2rem;
+    letter-spacing: -0.025em;
+}
+
+.featuredCarousel {
+    margin-top: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
+    border-radius: 1.25rem;
+    border: 1px solid #f3f4f6;
+    padding: 1rem 0.5rem;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .featuredCarousel {
+        padding: 1.5rem 1rem;
+    }
+}
+
+.carouselSlide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5rem 0.75rem;
+}
+
+.carouselImageWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 11rem;
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+.carouselImage {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.carouselSlide:hover .carouselImage {
+    transform: scale(1.04);
+}
+
+.carouselDiscountBadge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: #dcfce7;
+    color: #166534;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid #bbf7d0;
+}
+
+.carouselInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.carouselCategory {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #16a34a;
+}
+
+.carouselProductTitle {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.carouselPrice {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #111827;
+    margin: 0;
+}
