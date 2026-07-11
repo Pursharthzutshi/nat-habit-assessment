@@ -1,97 +1,77 @@
-# Nat Habit E-Commerce Storefront
+# Nat Habit Storefront – Project Overview & Architecture
 
-This project is wrapped inside **Redux Toolkit** for global state management.
+This project is built with Next.js App Router and wrapped inside Redux Toolkit for global state management.
 
----
+<div align="center">
+  <img src="./public/architecture/nat-habit-assessment-architecture.png" alt="Nat Habit Storefront Architecture Diagram" width="100%" />
+  <p><em><a href="./public/architecture/nat-habit-assessment-architecture.svg">View High-Resolution Vector SVG Diagram</a></em></p>
+</div>
 
-## Homepage Architecture
+At the root (`/`), the main entry file (`app/page.tsx`) renders the `HomePage` component. Inside `HomePage`, the layout flows through 5 major sections:
 
-Here at root (`/`) there is `page.tsx`. Inside `page.tsx` there is `HomePage`. Now, as the home page will be at the root URL, that's why it has been set inside the main `app/page.tsx`. Inside the home page there are **5 major components**:
+1. **Navbar** (with brand logo, mobile drawer, and interactive shopping cart badge)
+2. **SearchBar**
+3. **FeaturedProducts** (carousel slider)
+4. **ProductCategories** (category filter buttons & sorting dropdown)
+5. **AllProducts** (main product grid with pagination)
 
-- **Navbar** (contains brand logo, mobile drawer menu, and interactive shopping cart icon)
-- **SearchBar**
-- **FeaturedProducts**
-- **ProductCategories**
-- **AllProducts** (where pagination is used)
+### Data Fetching & Redux Caching Approach
+Since Redux Toolkit is used for state management, products fetched from the DummyJSON API are stored globally in Redux so we don't fetch duplicate data.
 
-### Data Fetching & Redux Caching
-
-As I said, Redux is used so all products from the DummyJSON API are stored in that Redux store, and a custom hook called `useProducts` has been made which will be used for showing data. Inside the `useProducts` hook, the API fetch call is made to the API and the response is stored in Redux so we don't make duplicate API requests.
-
-Inside the `useProducts` hook, **3 API type fetching** is done:
-1. First by fetching the whole catalog
-2. Second by ID (which checks the Redux cache first)
-3. Third by product search query
-
----
-
-## Homepage Components Breakdown
-
-- **SearchBar**: The first component after `Navbar` is `SearchBar`, which contains a search input component. When a user searches, it navigates to `/search?q=...` which shows search results using the search page content using `useSearchParams` and also by using the `useProductQuery` hook.
-- **FeaturedProducts**: The second component is `FeaturedProducts`, which contains an Ant Design `Carousel` used to show items in a slideshow type of system along with titles and discount badges. I also made it modular by splitting each slide into a clean `FeaturedProductSlide` subcomponent.
-- **ProductCategories**: A small component used mainly to show category buttons of products along with the extra sorting dropdown added which contains products sorted by *Price: Low to High*, *Price: High to Low*, and *Highest Rated*.
-- **AllProducts**: The component which is mapped and contains all data from the `useProducts` hook. It contains **3 components**:
-  - `ProductsCardTop`
-  - `ProductsCardBottom`
-  - `ItemQuantityCartButtons`
+To make the code modular, I created a custom `useProducts` hook (`store/useProducts.ts`) that acts as the single source of truth for product data. Inside this hook, 3 types of fetching and querying are handled:
+1. Fetching the entire product catalog (`fetchCatalog`)
+2. Fetching/caching individual products by ID (`fetchProductById`)
+3. Searching products by keyword (`searchProducts`)
 
 ---
 
-## Product Detail Page (`/products/[id]`)
+### Homepage Component Walkthrough
 
-Whenever a user clicks on any product, it navigates to that product page using `/products/[id]`, which shows the `ProductsCardsInformation` component. This component checks the Redux cache first for instant loading and is further divided into more components which are:
-
-- **ProductCardImageBox**
-- **ProductCardOverviewBox**
-- **ProductsInformation**
-- **Similar Category Products** (showing filtered and similar data of products based on product category)
-
-### Product Detail Subcomponents
-
-- **ProductCardImageBox**: Contains the image component and styling which is on the left side.
-- **ProductCardOverviewBox**: Contains the data of the product which is given on the right side like title, description, discount, etc.
-- **ProductsInformation**: Box below the product image and main data. This component contains the following components:
-  - `ProductInfo` — Data about the product in a structured box below.
-  - `ProductDimensions` — Contains dimension tags in boxes about the product.
-  - `ProductReviewsSection` — Shows customer reviews and further contains:
-    - `ProductReviewsRating` (contains customer reviews)
-    - `ProductReviewCustomerInfo` (customer info like name, email, and avatar)
-- **Similar Category Products**: Lastly, this main product component contains one more section showing similar category products using the `useProducts` hook with a filter method having the category filtered.
+* **SearchBar**: A search input component that lets users search for items. When submitted, it navigates to `/search?q=...` where `useSearchParams` and our query hook display the matching search results.
+* **FeaturedProducts**: Uses an Ant Design `Carousel` to display top products in an auto-playing responsive slideshow. I also split each card into a modular `FeaturedProductSlide` subcomponent.
+* **ProductCategories**: A clean filter bar showing category buttons along with a sorting dropdown (Price: Low to High, Price: High to Low, Highest Rated).
+* **AllProducts**: The main product listing grid mapped from the `useProducts` hook. Each card is broken down into 3 subcomponents:
+  * `ProductsCardTop` (product image thumbnail & discount badge)
+  * `ProductsCardBottom` (price & star rating)
+  * `ItemQuantityCartButtons` (Add to Cart / quantity controls)
 
 ---
 
-## Folder Structure
+### Product Detail Page (`/products/[id]`)
 
-- **`util/`**: Contains mainly the tools and reusable things like error displays, loading spinner, back button, etc.
-- **`types/`**: Contains all main types, interfaces, and props of all components.
-- **`ReduxSlicers/` & `store/`**: Redux store, slicers (containing cart and fetch product slicer functions), and Redux hooks.
-- **`hooks/`**: Contains all custom hooks (`useProductDetails` and `useProductQuery`).
+Whenever a user clicks on a product card, it navigates to dynamic route `/products/[id]`, which renders the `ProductsCardsInformation` component. This component checks Redux cache first so repeat visits load instantly with `0` API calls.
+
+It is organized into the following sections:
+
+1. **ProductCardImageBox** (left side image gallery & thumbnail selector)
+2. **ProductCardOverviewBox** (right side product details like title, brand, description, star ratings, and warranty badges)
+3. **ProductsInformation** (tabbed metadata section below the main overview box)
+4. **Similar Category Products** (reusing the `AllProducts` grid filtered by the current product's category)
+
+Inside **ProductsInformation**, the tabs are further divided into modular components:
+* `ProductInfo`: Detailed shipping, return policy, and stock status.
+* `ProductDimensions`: Product weight and physical dimensions box.
+* `ProductReviewsSection`: Displays customer feedback and is composed of:
+  * `ProductReviewsRating`: Overall rating and individual review comments.
+  * `ProductReviewCustomerInfo`: Reviewer details like name, email, and date.
 
 ---
 
-## Extra Things I Done (Not Mentioned in Assignment)
+### Folder Structure & Organization
 
-1. **Cart Functionality**: Added cart functionality along with the `Drawer` package from Ant Design. Users can add items to the cart, increment, and decrement items directly from product cards or inside the slide-out cart drawer.
-2. **Client-Side Pagination**: Added pagination in `AllProducts` using `react-simple-pagination` which shows data in an optimized way instead of overwhelming infinite scroll.
-3. **Interactive Sorting & Filtering**: Added sorting dropdown and interactive category filtering buttons for sorting items in product categories (*Price: Low to High*, *Price: High to Low*, *Highest Rated*).
-4. **Similar / Recommended Products**: Added a similar/recommended products grid section at the bottom of single product pages based on matching category.
-5. **Dynamic SEO & OpenGraph Tags**: Added dynamic SEO components and OpenGraph meta tags for SEO-friendly pages so each product page has its own title and description.
-6. **Single-Fetch Redux Caching**: Built single-fetch Redux caching so once a product or catalog is loaded, navigating between pages loads instantly with zero extra API calls.
+* **`util/`**: Contains reusable UI helpers and components like `LoadingSpinner`, `ErrorMessage`, `NetworkError`, `ProductNotFound`, and `BackButton`.
+* **`types/`**: Contains `types.ts` with TypeScript interfaces for `Product`, `CartItem`, and component props.
+* **`store/` & `ReduxSlicers/`**: Contains the Redux store configuration, custom hooks, `FetchProductDataSlicer` (catalog cache), and `CartSlicer` (shopping cart state).
+* **`hooks/`**: Contains all custom hooks (`useProducts`, `useProductDetails`, `useProductQuery`).
 
 ---
 
-## Getting Started
+### Extra Features Added (Beyond Basic Assignment Requirements)
 
-### Local Development
-
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-2. Run the development server:
-   ```bash
-   npm run dev
-   ```
-
-3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+1. **Full Shopping Cart Drawer**: Built interactive Add-to-Cart functionality with increment/decrement controls using Redux and Ant Design's Drawer component.
+2. **Local Storage Cart Persistence**: Automatically saves cart state to `localStorage` so items and quantities persist across browser refreshes and page reloads.
+3. **Client-Side Pagination**: Added smooth pagination on the Homepage product grid (`react-simple-pagination`) to display large catalog sets cleanly instead of endless scrolling.
+4. **Interactive Sorting & Filtering**: Added category filter pills and multi-option sorting (*Price: Low to High*, *Price: High to Low*, *Highest Rated*) on the homepage.
+5. **Similar / Recommended Products Grid**: Added a dedicated recommended products section at the bottom of single product detail pages based on matching category.
+6. **Dynamic SEO & OpenGraph Tags**: Added dynamic page titles and meta descriptions (`app/products/[id]/layout.tsx` & SEO helpers) so every product page is SEO-friendly.
+7. **Single-Fetch Redux Caching**: Designed intelligent caching in `useProducts` so once a product or catalog is fetched, navigating between pages loads instantly with zero extra API requests.
