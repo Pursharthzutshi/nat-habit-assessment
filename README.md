@@ -75,3 +75,31 @@ Inside **ProductsInformation**, the tabs are further divided into modular compon
 5. **Similar / Recommended Products Grid**: Added a dedicated recommended products section at the bottom of single product detail pages based on matching category.
 6. **Dynamic SEO & OpenGraph Tags**: Added dynamic page titles and meta descriptions (`app/products/[id]/layout.tsx` & SEO helpers) so every product page is SEO-friendly.
 7. **Single-Fetch Redux Caching**: Designed intelligent caching in `useProducts` so once a product or catalog is fetched, navigating between pages loads instantly with zero extra API requests.
+
+---
+
+## Getting Started & Local Setup
+
+### Prerequisites
+- **Node.js**: v18.17.0 or higher
+- **npm** or **yarn**
+
+### 1. Install Dependencies
+Clone the repository and install packages:
+```bash
+npm install --legacy-peer-deps
+```
+
+### 2. Run the Development Server
+Start the local development server:
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+
+### 3. Production Build
+To test the optimized production bundle locally:
+```bash
+npm run build
+npm run start
+```
