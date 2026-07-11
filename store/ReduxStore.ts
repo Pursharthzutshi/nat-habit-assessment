@@ -11,3 +11,11 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
+store.subscribe(() => {
+    if (typeof window !== "undefined") {
+        try {
+            localStorage.setItem("nat_habit_cart", JSON.stringify(store.getState().cart));
+        } catch {}
+    }
+});

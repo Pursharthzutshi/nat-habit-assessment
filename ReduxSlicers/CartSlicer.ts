@@ -7,12 +7,24 @@ type CartSlicerProps = {
     clearItemsFromCartData: any[];
 }
 
-const initialState: CartSlicerProps = {
+const defaultState: CartSlicerProps = {
     addItemsToCartData: [],
     cartItemQuantity: 0,
     removeItemsFromCartData: [],
     clearItemsFromCartData: [],
-}
+};
+
+const loadCartFromStorage = (): CartSlicerProps => {
+    if (typeof window === "undefined") return defaultState;
+    try {
+        const saved = localStorage.getItem("nat_habit_cart");
+        return saved ? JSON.parse(saved) : defaultState;
+    } catch {
+        return defaultState;
+    }
+};
+
+const initialState: CartSlicerProps = loadCartFromStorage();
 
 export const CartSlicer = createSlice({
     name: "AddItemsToCartData",
